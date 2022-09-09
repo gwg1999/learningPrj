@@ -1,5 +1,6 @@
 import {setRoutes} from "../router";
-
+import store from '@/store';
+import {resolve} from "../../build/webpack.base.conf";
 
 /**
  * @description: 根据src/modules文件夹，加载本地路由
@@ -40,5 +41,14 @@ export const getLocalRoute = async function (){
     }
   }
   routes.push({path: '*',redirect: '/404',hidden: true})
+  store.commit("SET_ROUTES",routes)
+  // console.log('routes',$store.state.routes)
   setRoutes(routes)
+}
+
+export const getUserRoutes = function(){
+  return new Promise((resolve,reject) => {
+    let route = []
+    
+  })
 }

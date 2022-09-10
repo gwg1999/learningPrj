@@ -1,6 +1,5 @@
 import {setRoutes} from "../router";
 import store from '@/store';
-import {resolve} from "../../build/webpack.base.conf";
 
 /**
  * @description: 根据src/modules文件夹，加载本地路由
@@ -49,6 +48,6 @@ export const getLocalRoute = async function (){
 export const getUserRoutes = function(){
   return new Promise((resolve,reject) => {
     let route = []
-    
+
   })
 }

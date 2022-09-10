@@ -9,6 +9,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 
+// import mockData from './mock'
+
 Vue.use(ElementUI)
 
 /* eslint-disable no-new */

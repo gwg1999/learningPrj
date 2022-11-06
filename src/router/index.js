@@ -6,10 +6,6 @@
  * @Description: 路由相关内容
  */
 
-/**
- *
- */
-
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -22,6 +18,10 @@ export const baseRoute = [
     name: '404',
     component: () => import('@/components/HelloWorld')
   },
+  {
+    path: '*',
+    redirect: '/404'
+  }
 ]
 
 // 创建路由对象

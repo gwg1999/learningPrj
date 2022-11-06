@@ -11,11 +11,6 @@ NProgress.configure({showSpinner: false})
 localRoute && getLocalRoute()
 
 router.beforeEach(async (to, from, next) => {
-  NProgress.start()
-  switch (true){
-    case (localRoute):
-      store.commit('RELOAD_ROUTE',false)
-  }
   next()
 })
 

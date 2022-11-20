@@ -11,7 +11,15 @@ NProgress.configure({showSpinner: false})
 localRoute && getLocalRoute()
 
 router.beforeEach(async (to, from, next) => {
-  next()
+  NProgress.start()
+
+  if(!store.getters.routes){
+    await getLocalRoute()
+    next({...to, replace:true})
+  }else{
+    next()
+    NProgress.done()
+  }
 })
 
 

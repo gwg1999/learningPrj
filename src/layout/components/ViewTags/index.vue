@@ -10,9 +10,9 @@
         :to="route.path"
         class="tags"
       >
-        {{ route.title || 'none-name' }}
+        {{ route.meta.title || 'none-name' }}
       </router-link>
-      <span class="icon-close">
+      <span class="icon-close" v-if="!route.meta.fixed">
         <i class="el-icon-close" @click="closeTag(route)"></i>
       </span>
     </div>
@@ -57,14 +57,25 @@ export default {
         })
       }
     },
-    closeTag(){
+    closeTag(route){
+      console.log("deleteRoute:",route)
 
+      if(route.path === this.$route.path){
+        let index = this.visitedView.findIndex((item) => {
+          return item.path === route.path
+        })
+        this.$router.push(this.visitedView[index-1].path)
+      }
+      this.$store.dispatch('DEL_VIEW',route)
     },
     initTag() {
       this.getRoutesMap(this.routes)
     },
     getRoutesMap(routes, basePath = '/') {
       routes.forEach((route) => {
+        if(route.meta && route.meta.fixed){
+          this.$store.dispatch('ADD_VIEW', route)
+        }
         this.routesMap[route.name] = route
         if (route.children) {
           this.getRoutesMap(route.children, route.path)

@@ -34,6 +34,9 @@ const actions = {
   ['ADD_VIEW']({commit}, view){
     commit('ADD_VISITEDVIEW', view)
   },
+  ['DEL_VIEW']({commit}, view){
+    commit('DELETE_VISITEDVIEW', view)
+  },
 }
 
 export default {

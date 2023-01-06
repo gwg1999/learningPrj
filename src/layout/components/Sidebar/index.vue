@@ -1,14 +1,14 @@
 <template>
   <div>
-    <el-scrollbar>
-      <el-menu
-        :collapse="false"
-        :unique-opened="false"
-        :default-active="activeMenu"
-      >
-        <sidebar-item v-for="route in menus" :key="route.path" :item="route"></sidebar-item>
-      </el-menu>
-    </el-scrollbar>
+    <el-menu
+      :collapse="false"
+      :unique-opened="false"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+    >
+      <sidebar-item v-for="menu in menus" :key="menu.path" :menu="menu"></sidebar-item>
+    </el-menu>
   </div>
 </template>
 
@@ -17,14 +17,7 @@ import SidebarItem from "./SidebarItem";
 export default {
   name: "Sidebar",
   components: {SidebarItem},
-  props: {
-    menus: {
-      type: Array,
-      default(){
-        return []
-      }
-    }
-  },
+  props: {},
   computed: {
     activeMenu(){
       const route = this.$route
@@ -33,6 +26,13 @@ export default {
         return meta.activeMenu
       }
       return path
+    },
+    menus(){
+      return this.$store.getters.routes
+    }
+  },
+  data(){
+    return {
     }
   }
 }

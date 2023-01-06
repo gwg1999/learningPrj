@@ -1,22 +1,17 @@
 <template>
-  <div>
-    <router-view/>
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
   name: "index",
-  components: {
-  },
   data(){
     return {
+
     }
   },
   methods: {
-    test(){
 
-    }
   }
 }
 </script>

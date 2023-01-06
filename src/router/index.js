@@ -1,9 +1,10 @@
-/*
+/**
  * @Author: gao_wg
  * @Date: 2022/9/5
  * @LastEditor: gao_wg
  * @LastEditTime: 2022/9/5
- * @Description: 路由相关内容
+ * @Description: 路由相关内容，实现动态路由
+ *
  */
 
 import Vue from 'vue'
@@ -16,12 +17,12 @@ export const baseRoute = [
   {
     path: '/404',
     name: '404',
+    hidden: true,
+    meta: {
+      isFullScreen: true,
+    },
     component: () => import('@/components/HelloWorld')
   },
-  {
-    path: '*',
-    redirect: '/404'
-  }
 ]
 
 // 创建路由对象

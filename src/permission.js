@@ -10,15 +10,19 @@ NProgress.configure({showSpinner: false})
 
 localRoute && getLocalRoute()
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
   NProgress.start()
-
-  if(!store.getters.routes){
-    await getLocalRoute()
-    next({...to, replace:true})
-  }else{
-    next()
-    NProgress.done()
+  switch (true){
+    case localRoute:
+      next()
+      NProgress.done()
+      break
+    case whiteList.includes(to.path):
+      next()
+      NProgress.done()
+      break
+    default:
+      break
   }
 })
 

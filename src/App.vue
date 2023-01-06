@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <MainApp/>
   </div>
 </template>
 
 <script>
+import MainApp from './layout/MainApp'
 export default {
   name: 'App',
+  components: {MainApp},
 }
 </script>
 
@@ -16,8 +17,12 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /*text-align: center;*/
   color: #2c3e50;
-  margin-top: 60px;
+  /*height: calc(100vh);*/
 }
+body{
+  margin: 0;
+}
+
 </style>

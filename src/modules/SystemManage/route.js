@@ -1,8 +1,8 @@
 const route = {
-  path: 'test',
-  name: 'test',
+  path: '/SystemManage',
+  name: 'SystemManage',
   meta: {
-    title: '测试',
+    title: '系统管理'
   },
   component: () => import('./index')
 }

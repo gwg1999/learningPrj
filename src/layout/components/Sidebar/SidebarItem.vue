@@ -1,3 +1,9 @@
+<!--*
+  *
+  * 目前仅支持两级目录
+  *
+-->
+
 <template>
   <div v-if="!menu.hidden">
     <el-submenu :index="menu.name" v-if="judgeActiveChild > 1">
@@ -55,10 +61,12 @@ export default {
   },
   methods: {
     // 点击跳转路由
-    changeRoute(item,flag){
-      let routePath = this.menu.path
-      if(flag){
-        routePath += `/${item.path}`
+    changeRoute(item){
+      let routePath;
+      if(item.path.indexOf('/') ===0){
+        routePath = item.path
+      }else{
+        routePath = this.menu.path + `/${item.path}`
       }
       if(this.$route.fullPath !== routePath){
         this.$router.push(routePath)
@@ -66,8 +74,6 @@ export default {
         this.$message.warning("当前已在该页面")
       }
     },
-
-
   }
 }
 </script>

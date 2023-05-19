@@ -2,6 +2,8 @@ module.exports = {
   // 本地路由
   localRoute: true,
 
+  appName: 'demo',
+
   // 代理设置
   proxy: {
     '/api': {
